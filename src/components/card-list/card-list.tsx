@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { TOfferPreview } from '../../types';
 import { Card } from '../card';
 
@@ -12,11 +13,13 @@ export const CardList = ({ offersList }: { offersList: TOfferPreview[] }) => {
   return (
     <>
       {offersList.map((offerPreview) => (
-        <Card
-          offerPreview={offerPreview}
-          key={offerPreview.id}
-          onMouseEnter={() => handleMouseEnter(offerPreview)}
-        />
+        <Link to={`/offer/${offerPreview.id}`}>
+          <Card
+            offerPreview={offerPreview}
+            key={offerPreview.id}
+            onMouseEnter={() => handleMouseEnter(offerPreview)}
+          />
+        </Link>
       ))}
     </>
   );
