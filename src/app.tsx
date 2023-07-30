@@ -9,15 +9,14 @@ import {
   Layout,
 } from './pages';
 import { PrivateRoute } from './components';
-import { CARDS_COUNT } from './constants';
-import { TReview, TOffer } from './types';
+import { TReview, TOffer, TOfferPreview } from './types';
 
 export const App = ({
   offersList,
   offer,
   reviewList,
 }: {
-  offersList: any[];
+  offersList: TOfferPreview[];
   offer: TOffer;
   reviewList: TReview[];
 }) => (
@@ -25,7 +24,12 @@ export const App = ({
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<MainPage cardsCount={CARDS_COUNT} />} />
+          <Route
+            index
+            element={
+              <MainPage offersList={offersList} />
+            }
+          />
           <Route
             path="/favorites"
             element={
