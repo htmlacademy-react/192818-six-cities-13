@@ -10,8 +10,17 @@ import {
 } from './pages';
 import { PrivateRoute } from './components';
 import { CARDS_COUNT } from './constants';
+import { TReview, TOffer } from './types';
 
-export const App = () => (
+export const App = ({
+  offersList,
+  offer,
+  reviewList,
+}: {
+  offersList: any[];
+  offer: TOffer;
+  reviewList: TReview[];
+}) => (
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
@@ -25,7 +34,10 @@ export const App = () => (
               </PrivateRoute>
             }
           />
-          <Route path="/offer/:id" element={<OfferPage />} />
+          <Route
+            path="/offer/:id"
+            element={<OfferPage offer={offer} reviewList={reviewList} />}
+          />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<NotFoundPage />} />
