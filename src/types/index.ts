@@ -9,7 +9,7 @@ export type TOfferPreview = {
   title: string;
   type: string;
   price: number;
-  previewImage: string;
+  previewImage: string; // этго нет в TOffer
   city: {
     name: string;
     location: TLocation;
@@ -20,27 +20,15 @@ export type TOfferPreview = {
   rating: number;
 };
 
-export type TOffer = {
-  id: string;
-  title: string;
+export type TOffer = Omit<TOfferPreview, 'previewImage'> & {
   description: string;
-  type: string;
-  price: number;
   images: string[];
-  city: {
-    name: string;
-    location: TLocation;
-  };
-  location: TLocation;
   goods: string[];
   host: {
     isPro: boolean;
     name: string;
     avatarUrl: string;
   };
-  isPremium: boolean;
-  isFavorite: boolean;
-  rating: number;
   bedrooms: number;
   maxAdults: number;
 };

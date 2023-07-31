@@ -4,7 +4,7 @@ import { TOfferPreview } from '../../types';
 import { Card } from '../card';
 
 export const CardList = ({ offersList }: { offersList: TOfferPreview[] }) => {
-  const [activeOffer, setActiveOffer] = useState<TOfferPreview | null>(null);
+  const [, setActiveOffer] = useState<TOfferPreview | null>(null);
 
   const handleMouseEnter = (offerPreview: TOfferPreview) => {
     setActiveOffer(offerPreview);
@@ -13,10 +13,9 @@ export const CardList = ({ offersList }: { offersList: TOfferPreview[] }) => {
   return (
     <>
       {offersList.map((offerPreview) => (
-        <Link to={`/offer/${offerPreview.id}`}>
+        <Link key={offerPreview.id} to={`/offer/${offerPreview.id}`}>
           <Card
             offerPreview={offerPreview}
-            key={offerPreview.id}
             onMouseEnter={() => handleMouseEnter(offerPreview)}
           />
         </Link>

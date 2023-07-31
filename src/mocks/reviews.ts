@@ -4,7 +4,7 @@ export const reviewListMock: TReview[] = [
   {
     id: 'c6b5bded-e5c3-4dde-8cd0-a0ed7a8b75c3',
     comment:
-      "Home is amazing. It's like staying in a museum. The rooms, furnishings and artworks are incredible. The views of My Vesuvius",
+      'Home is amazing. It\'s like staying in a museum. The rooms, furnishings and artworks are incredible. The views of My Vesuvius',
     date: '2023-07-08T21:00:00.598Z',
     rating: 2,
     user: {
