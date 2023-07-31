@@ -13,10 +13,12 @@ import { TReview, TOffer, TOfferPreview } from './types';
 
 export const App = ({
   offersList,
+  offersNearbyList,
   offer,
   reviewList,
 }: {
   offersList: TOfferPreview[];
+  offersNearbyList: TOfferPreview[];
   offer: TOffer;
   reviewList: TReview[];
 }) => (
@@ -24,23 +26,24 @@ export const App = ({
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route
-            index
-            element={
-              <MainPage offersList={offersList} />
-            }
-          />
+          <Route index element={<MainPage offersList={offersList} />} />
           <Route
             path="/favorites"
             element={
               <PrivateRoute>
-                <FavoritesPage />
+                <FavoritesPage favoritesList={offersList} />
               </PrivateRoute>
             }
           />
           <Route
             path="/offer/:id"
-            element={<OfferPage offer={offer} reviewList={reviewList} />}
+            element={
+              <OfferPage
+                offer={offer}
+                reviewList={reviewList}
+                offersNearbyList={offersNearbyList}
+              />
+            }
           />
         </Route>
         <Route path="/login" element={<LoginPage />} />

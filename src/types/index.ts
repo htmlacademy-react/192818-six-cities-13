@@ -7,7 +7,7 @@ type TLocation = {
 export type TOfferPreview = {
   id: string;
   title: string;
-  type: string; // TODO уточнить тип скорее всего выбор из нескольких значений типа 'house'
+  type: string;
   price: number;
   previewImage: string;
   city: {
@@ -24,7 +24,7 @@ export type TOffer = {
   id: string;
   title: string;
   description: string;
-  type: string; // TODO уточнить тип скорее всего выбор из нескольких значений типа 'house'
+  type: string;
   price: number;
   images: string[];
   city: {
