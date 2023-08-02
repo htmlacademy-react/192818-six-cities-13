@@ -1,6 +1,7 @@
-import { Card } from '../../components';
+import { CardList } from '../../components';
+import { TOfferPreview } from '../../types';
 
-export const MainPage = ({ cardsCount }: { cardsCount: number }) => (
+export const MainPage = ({ offersList }: { offersList: TOfferPreview[] }) => (
   <main className="page__main page__main--index">
     <h1 className="visually-hidden">Cities</h1>
     <div className="tabs">
@@ -71,9 +72,7 @@ export const MainPage = ({ cardsCount }: { cardsCount: number }) => (
             </ul>
           </form>
           <div className="cities__places-list places__list tabs__content">
-            {Array.from({ length: cardsCount }, (_, index) => (
-              <Card key={index} />
-            ))}
+            <CardList offersList={offersList} />
           </div>
         </section>
         <div className="cities__right-section">
