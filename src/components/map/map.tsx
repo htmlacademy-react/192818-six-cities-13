@@ -6,7 +6,13 @@ import pinIcon from './img/pin.svg';
 // import pinActiveIcon from './img/pin-active.svg';
 import { TLocation } from '../../types';
 
-export const Map = ({ city, points }: { city: TLocation; points: TLocation[] }) => {
+export const Map = ({
+  city,
+  points,
+}: {
+  city: TLocation;
+  points: TLocation[];
+}) => {
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
 
@@ -16,11 +22,11 @@ export const Map = ({ city, points }: { city: TLocation; points: TLocation[] }) 
     iconAnchor: [12, 36],
   });
 
-//   const currentCustomIcon = leaflet.icon({
-//     iconUrl: pinActiveIcon,
-//     iconSize: [23, 36],
-//     iconAnchor: [12, 36],
-//   });
+  //   const currentCustomIcon = leaflet.icon({
+  //     iconUrl: pinActiveIcon,
+  //     iconSize: [23, 36],
+  //     iconAnchor: [12, 36],
+  //   });
 
   useEffect(() => {
     if (map) {
