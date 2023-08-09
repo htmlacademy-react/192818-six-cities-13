@@ -1,4 +1,4 @@
-type TLocation = {
+export type TLocation = {
   latitude: number;
   longitude: number;
   zoom: number;
@@ -9,7 +9,7 @@ export type TOfferPreview = {
   title: string;
   type: string;
   price: number;
-  previewImage: string; // этго нет в TOffer
+  previewImage: string;
   city: {
     name: string;
     location: TLocation;
